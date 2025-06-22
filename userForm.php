@@ -1,4 +1,7 @@
 <?php
+    $title = 'Inserisci nuovo utente';
+    include('template.php');
+
     require_once('connection.php');
 
     if (!empty($_POST)) {
@@ -14,53 +17,28 @@
 								'$NUM_TELEFONO', '$DATA_NASCITA')";
 			
 		$query = mysqli_query($db, $sql);
+
+        if ($query) {
+            echo "<script>alert('Utente inserito con successo!');</script>";
+        } 
+        else {
+            echo "<script>alert('Errore durante l\\'inserimento dell\\'utente.');</script>";
+        }
     }
 ?>
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Inserisci Utente</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.jade.min.css"
-        >
-    </head>
-    <body>
-        <main class="container">
-            <header>
-                <nav>
-                <ul>
-                    <li><a href="index.php"><strong>Biblioteca</strong></a></li>
-                </ul>
-                <ul>
-                    <li><a href="userForm.php">Utente</a></li>
-                    <li><a href="searchBook.php">Ricerca Libro</a></li>
-                    <li><a href="authorBooks.php">Libri per Autore</a></li>
-                </ul>
 
-                <ul>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Products</a></li>
-                </ul>   
-                </nav>
-            </header>
-
-            <h1 class="center">Inserisci Utente</h1>
-            <form action="userForm.php" method="POST">
-                <label>Codice matricola:   <input type="number" name="cod_matricola" required autofocus></label>
-                <label>Nome:               <input type="text" name="nome" required> </label>
-                <label>Cognome:            <input type="text" name="cognome" required> </label>
-                <label>Indirizzo:          <input type="text" name="indirizzo"> </label>
-                <label>Numero di telefono: <input type="text" name="num_telefono"> </label>
-                <label>Data di nascita:    <input type="date" name="data_nascita" required> </label>
-                <input type="submit">
-            </form>
-        </main>
-    </body>
-</html>
+<main class="container">
+    <h1 style="text-align: center;">Inserisci un nuovo utente</h1>
+    <form action="userForm.php" method="POST">
+        <fieldset>
+            <label>Codice matricola:   <input type="number" name="cod_matricola" required autofocus></label>
+            <label>Nome:               <input type="text" name="nome" required> </label>
+            <label>Cognome:            <input type="text" name="cognome" required> </label>
+            <label>Indirizzo:          <input type="text" name="indirizzo"> </label>
+            <label>Numero di telefono: <input type="text" name="num_telefono"> </label>
+            <label>Data di nascita:    <input type="date" name="data_nascita" required> </label>
+        </fieldset>
+        <input type="submit">
+    </form>
+</main>
