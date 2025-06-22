@@ -10,15 +10,17 @@
 
 
 <main class="container">
-    <table>
-        <tr>
-            <th>Matricola</th>
-            <th>Nome</th>
-            <th>Cognome</th>
-            <th>Indirizzo</th>
-            <th>Telefono</th>
-            <th>Data di nascita</th>
-        </tr>
+    <table class="striped">
+        <thead>
+            <tr>
+                <th>Matricola</th>
+                <th>Nome</th>
+                <th>Cognome</th>
+                <th>Indirizzo</th>
+                <th>Telefono</th>
+                <th>Data di nascita</th>
+            </tr>   
+        </thead>
         <?php foreach ($utenti as $utente): ?>
             <tr>
                 <?php foreach ($utente as $data): ?>

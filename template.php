@@ -20,11 +20,13 @@
 				</ul>
 
 				<ul>
+					<li><a href="loansManager.php">Prestiti</a></li>
 					<details class="dropdown">
 						<summary role="button" class="outline" style="background: transparent; border: transparent;">Utenti</summary>
 						<ul>
 							<li><a href="userForm.php">Aggiungi utente</a></li>
 							<li><a href="users.php">Lista utenti</a></li>
+							<li><a href="userLoans.php">Prestiti utente</a></li>
 						</ul>
 					</details>
 						<details class="dropdown">
@@ -35,7 +37,6 @@
 						</ul>
 					</details>
 				</ul>
-
 				<ul></ul>   
 			</nav>
 		</header>

@@ -17,13 +17,6 @@
 								'$NUM_TELEFONO', '$DATA_NASCITA')";
 			
 		$query = mysqli_query($db, $sql);
-
-        if ($query) {
-            echo "<script>alert('Utente inserito con successo!');</script>";
-        } 
-        else {
-            echo "<script>alert('Errore durante l\\'inserimento dell\\'utente.');</script>";
-        }
     }
 ?>
 
@@ -40,5 +33,12 @@
             <label>Data di nascita:    <input type="date" name="data_nascita" required> </label>
         </fieldset>
         <input type="submit">
+        
+        <?php if ($query) {
+            echo "<p style='color: green; text-align: center;'>Utente inserito con successo!</p>";
+        } 
+        else if(!empty(($_POST))) {
+            echo "<p style='color: red; text-align: center;'>Errore durante l'inserimento dell'utente.</p>";
+        }?>
     </form>
 </main>

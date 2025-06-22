@@ -27,11 +27,13 @@
 
     <?php if ($libri->num_rows): ?>
         <table>
-            <tr>
-                <th>ISBN</th>
-                <th>Titolo</th>
-                <th>Anno</th>
-            </tr>
+            <thead>
+                <tr>
+                    <th>ISBN</th>
+                    <th>Titolo</th>
+                    <th>Anno</th>
+                </tr>
+            </thead>
             <?php foreach ($libri as $libro): ?>
                 <tr>
                     <?php foreach ($libro as $data): ?>
