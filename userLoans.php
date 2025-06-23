@@ -18,8 +18,12 @@
             $utente = $utenti->fetch_assoc();
             $matricola = $utente['cod_matricola'];
 
-            $sql = "SELECT * FROM PRESTITO
-                    WHERE cod_matricola = '$matricola'";
+            $sql = "SELECT s.nome, l.titolo, p.cod_matricola, p.data_prestito, p.data_restituzione FROM PRESTITO As p
+                    JOIN SUCCURSALE AS s ON p.cod_suc=s.id
+                    JOIN COPIA AS c ON p.cod_copia=c.codice
+                    JOIN LIBRO AS l ON c.isbn=l.isbn
+                    WHERE cod_matricola = '$matricola'
+                    ORDER BY p.data_prestito DESC";
 
             $prestiti = $db->query($sql);
         }
@@ -59,7 +63,7 @@
         </table>
         <br>
         <?php if ($prestiti->num_rows > 0): ?>
-            <h3>Prestiti attivi:</h3>
+            <h3>Storico prestiti:</h3>
             <table class="striped">
                 <thead>
                     <tr>
@@ -83,9 +87,9 @@
                 <?php endforeach; ?>
             </table>
         <?php else: ?>
-            <h3 style="text-align: center;">Nessun prestito attivo</h3>
+            <h3 style="text-align: center;">Nessun prestito effettuato dall'utente</h3>
         <?php endif; ?>
     <?php else: ?>
-        <p>Nessun utente trovato.</p>
+        <p style="text-align: center">Nessun utente trovato.</p>
     <?php endif; ?>
 </main>

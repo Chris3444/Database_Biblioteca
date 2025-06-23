@@ -308,7 +308,7 @@ VALUES  -- Prestiti in corso (data di restituzione = data prestito + 30 giorni)
          
         ((SELECT id FROM SUCCURSALE WHERE nome = "Economia e Management"),
          (SELECT codice FROM COPIA WHERE isbn = 9788815286536 LIMIT 1),
-         195987, '2024-12-01', '2024-12-31'),
+         195987, '2024-12-01', '2025-12-31'),
          
         ((SELECT id FROM SUCCURSALE WHERE nome = "Scienze Mediche"),
          (SELECT codice FROM COPIA WHERE isbn = 9788877114105 LIMIT 1),

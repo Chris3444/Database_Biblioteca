@@ -5,7 +5,10 @@
 
     require_once('connection.php');
 
-    $sql = "SELECT * FROM PRESTITO";
+    $sql = "SELECT s.nome, l.titolo, p.cod_matricola, p.data_prestito, p.data_restituzione FROM PRESTITO As p
+            JOIN SUCCURSALE AS s ON p.cod_suc=s.id
+            JOIN COPIA AS c ON p.cod_copia=c.codice
+            JOIN LIBRO AS l ON c.isbn=l.isbn";
 
     $prestiti = $db->query($sql); 
 
@@ -27,19 +30,19 @@
             <button type="submit" name="mode" value="add"> Aggiungi </button>
             <button type="submit" name="mode" value="remove" 
                     style="border-color: crimson; background-color: crimson;"
-            > Rimuovi </button>
-        </form>
+            >Rimuovi</button>
+        </form> 
 
         <?php if ($mode == 1): ?>
             <article>
                 <form action="loansManager.php" method="post">
                     <label>Data prestito: <input type="date" name="data_prestito"></label>
-                    <button type="submit" name="action" value="add"> Aggiungi </button>
+                    <button type="submit" name="action" value="add">Aggiungi</button>
                 </form>
             </article>
         <?php elseif ($mode == 2): ?>
             <form action="loansManager.php" method="post">
-                <button type="submit" name="action" value="remove"> Elimina </button>
+                <button type="submit" name="action" value="remove">Elimina</button>
             </form>
         <?php endif;?>
             
@@ -65,5 +68,4 @@
                 </tr>
             <?php endforeach; ?>
     </table>
-
 </main>
