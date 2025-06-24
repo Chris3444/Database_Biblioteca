@@ -35,6 +35,7 @@
 
 
 <main class="container">
+    <h1 style="text-align: center;">Ricerca un utente e i suoi prestiti</h1>
     <form method="GET" action="userLoans.php">
         <input type="search" name="search" placeholder="Matricola o Nome e cognome utente">
     </form>

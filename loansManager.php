@@ -69,6 +69,7 @@
 ?>
 
 <main class="container">
+        <h1 style="text-align: center;">Gestisci prestiti</h1>
         <form action="loansManager.php" method="post">
             <fieldset class="grid">
                 <button type="submit" name="mode" value="add"> Aggiungi </button>
@@ -104,9 +105,9 @@
                     <?php if ($query) {
                         echo "<p style='color: green; text-align: center;'>Operazione eseguita con successo!</p>";
                     } 
-                    elseif(isset($_POST['action'])) {
-                        echo "<p style='color: crimson; text-align: center;'>Errore durante l'operazione.</p>";
-                    }?>
+                    //elseif(isset($_POST['action'])) {
+                     //   echo "<p style='color: crimson; text-align: center;'>Errore durante l'operazione.</p>";
+                    //}?>
                 </form>
             </article>
         <?php endif;?>

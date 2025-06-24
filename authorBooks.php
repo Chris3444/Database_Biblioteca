@@ -19,6 +19,7 @@
 ?>
 
 <main class="container">
+    <h1 style="text-align: center;">Ricerca libri di un autore</h1>
     <form method="GET" action="authorBooks.php">
         <input type="search" name="search" placeholder="Nome e cognome dell'autore da ricercare">
     </form>

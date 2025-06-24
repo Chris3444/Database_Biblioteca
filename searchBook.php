@@ -21,6 +21,7 @@
 
 
 <main class="container">
+    <h1 style="text-align: center;">Ricerca libro</h1>
     <form method="GET" action="searchBook.php">
         <input type="search" name="search" placeholder="Titolo libro da cercare">
     </form>

@@ -5,7 +5,7 @@
     require_once('connection.php');
 
     if (!empty($_POST)) {
-        $COD_MATRICOLA 	= filter_var($_POST['cod_matricola'], FILTER_SANITIZE_NUMBER_INT);
+        $COD_MATRICOLA 	= filter_var($_POST['cod_matricola'], FILTER_SANITIZE_STRING);
 		$NOME 	        = filter_var($_POST['nome'], FILTER_SANITIZE_STRING) ;
 		$COGNOME 	    = filter_var($_POST['cognome'], FILTER_SANITIZE_STRING) ;
 		$INDIRIZZO	    = filter_var($_POST['indirizzo'], FILTER_SANITIZE_STRING);

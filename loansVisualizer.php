@@ -31,7 +31,8 @@
     }
 ?>
 
-<main class="container">            
+<main class="container">  
+    <h1 style="text-align: center;">Ricerca prestiti</h1>          
     <form method="GET" action="loansVisualizer.php">
         <fieldset class="grid">
             <label>Inizio Periodo: <input type="date" name="inizio_range"></label>

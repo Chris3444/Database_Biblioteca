@@ -10,6 +10,7 @@
 
 
 <main class="container">
+    <h1 style="text-align: center;">Utenti</h1>
     <table class="striped">
         <thead>
             <tr>

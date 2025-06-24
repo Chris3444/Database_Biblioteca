@@ -17,6 +17,7 @@
     }
 ?>
 <main class="container">
+    <h1 style="text-align: center;">Ricerca autore</h1>
     <form method="GET" action="searchAuthors.php">
         <input type="search" name="search" placeholder="Cerca autore">
     </form>
