@@ -1,4 +1,4 @@
-use Biblioteca;
+	use Biblioteca;
 
 -- Aggiungi 5 nuovi libri di Philip Kotler
 INSERT INTO LIBRO(isbn, titolo, anno)

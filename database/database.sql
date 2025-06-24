@@ -66,14 +66,14 @@ CREATE TABLE UTENTE (
 );
 
 
-CREATE TABLE PRESTITO(
+CREATE TABLE PRESTITO (
     cod_suc             CHAR(36) NOT NULL,
     cod_copia           CHAR(36) NOT NULL,
     cod_matricola       INT NOT NULL,
     data_prestito       DATE NOT NULL,
     data_restituzione   DATE NOT NULL,
     
-    PRIMARY KEY (cod_suc,cod_copia,cod_matricola),
+    PRIMARY KEY (cod_suc,  cod_copia,cod_matricola, data_prestito),
     FOREIGN KEY (cod_suc) REFERENCES SUCCURSALE(id),
     FOREIGN KEY (cod_copia) REFERENCES COPIA(codice),
     FOREIGN KEY (cod_matricola) REFERENCES UTENTE(cod_matricola)

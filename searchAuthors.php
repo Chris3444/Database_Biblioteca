@@ -39,7 +39,7 @@
                 </tr>
             <?php endforeach; ?>
         </table>
-    <?php else: ?>
+    <?php elseif (isset($_GET['search'])): ?>
         <p style="text-align: center">Nessun autore trovato.</p>
     <?php endif; ?>
 </main>

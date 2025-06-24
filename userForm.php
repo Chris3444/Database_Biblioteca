@@ -38,7 +38,7 @@
             echo "<p style='color: green; text-align: center;'>Utente inserito con successo!</p>";
         } 
         else if(!empty(($_POST))) {
-            echo "<p style='color: red; text-align: center;'>Errore durante l'inserimento dell'utente.</p>";
+            echo "<p style='color: crimson; text-align: center;'>Errore durante l'inserimento dell'utente.</p>";
         }?>
     </form>
 </main>

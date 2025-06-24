@@ -89,7 +89,7 @@
         <?php else: ?>
             <h3 style="text-align: center;">Nessun prestito effettuato dall'utente</h3>
         <?php endif; ?>
-    <?php else: ?>
+    <?php elseif (isset($_GET['search'])): ?>
         <p style="text-align: center">Nessun utente trovato.</p>
     <?php endif; ?>
 </main>

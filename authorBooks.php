@@ -40,7 +40,7 @@
                 </tr>
             <?php endforeach; ?>
         </table>
-    <?php else: ?>
+    <?php elseif (isset($_GET['search'])): ?>
         <p style="text-align: center">Nessun libro trovato.</p>
     <?php endif; ?>
 </main>

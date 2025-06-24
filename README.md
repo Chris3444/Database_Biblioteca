@@ -1,6 +1,6 @@
 ## Todo List
 
-1. [/] Inserimento e cancellazione di un prestito.
+1. [X] Inserimento e cancellazione di un prestito.
 2. [X] Inserimento di un nuovo utente.
 3. [X] Ricerca di un libro inserendo il titolo (anche parziale) - nel caso in cui nessun parametro venga specificato deve essere presentata la lista completa dei libri.
 4. [X] Visualizzazione di tutti i libri di un determinato autore, eventualmente suddivisi per anno di pubblicazione.

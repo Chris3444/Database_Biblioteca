@@ -1,5 +1,5 @@
 <?php
-    $title = 'Statistica';
+    $title = 'Statistiche';
     include('template.php');
 
     require_once('connection.php');
@@ -24,14 +24,19 @@
     if (!empty($_GET) && isset($_GET['inizio_range']) && isset($_GET['fine_range'])){
         $inizio_range = $_GET['inizio_range'];
         $fine_range = $_GET['fine_range'];
-        
-        $sql = "SELECT s.nome, COUNT(p.cod_suc) AS prestiti FROM SUCCURSALE As s
-                        JOIN PRESTITO AS p ON p.cod_suc = s.id
-                        WHERE p.data_prestito BETWEEN '$inizio_range' AND '$fine_range'
-                        GROUP BY s.nome
-                        ORDER BY prestiti DESC";
 
-        $succursali = $db->query($sql);
+        if ($inizio_range <= $fine_range) {
+            $sql = "SELECT s.nome, COUNT(p.cod_suc) AS prestiti FROM SUCCURSALE As s
+                            JOIN PRESTITO AS p ON p.cod_suc = s.id
+                            WHERE p.data_prestito BETWEEN '$inizio_range' AND '$fine_range'
+                            GROUP BY s.nome
+                            ORDER BY prestiti DESC";
+
+            $succursali = $db->query($sql);
+        }
+        else {
+            $succursali = false;
+        }
     }
 ?>
 
@@ -39,13 +44,13 @@
 <main class="container">
     <form method="GET" action="statistics.php">
         <h3 >Libri pubblicati in un determinato anno</h3>
-        <fieldset role="grid">
+        <fieldset role="group">
             <input type="number" id="yearInput" name="yearInput"  max=<?php echo "$current_year"?> step="1" placeholder="YYYY">
             <input type="submit" value="ricerca">
         </fieldset>
     </form>
 
-    <?php if ($libri): ?>
+    <?php if ($libri->num_rows): ?>
         <table>
             <thead>
                 <tr>
@@ -63,7 +68,7 @@
             <?php endforeach; ?>
         </table>
     <?php elseif (isset($_GET['yearInput'])): ?>
-        <p style="text-align: center;">Nessun libro trovato</p>
+        <p style="text-align: center;">Nessun libro trovato</p><br>
     <?php endif;?>
     
     <hr>
@@ -76,7 +81,7 @@
             <label style="color: transparent;">easter egg<input type="submit" value="ricerca"></label>
         </fieldset>
     </form>
-    <?php if ($succursali): ?>
+    <?php if ($succursali->num_rows > 0): ?>
          <table class="striped">
             <thead>
                 <tr>    
@@ -96,11 +101,13 @@
                 </tr>
             <?php endforeach; ?>
         </table>
-    <?php elseif (isset($_GET['inizio_range']) && isset($_GET['fine_range'])): ?>
-        <p style="text-align: center">range inserito non valido</p>
+    <?php elseif ($succursali !== false && isset($_GET['inizio_range']) && isset($_GET['fine_range'])): ?>
+        <p style="text-align: center">Nessun prestito in questo range temporale</p><br>
+    <?php elseif ($succursali === false && isset($_GET['inizio_range']) && isset($_GET['fine_range'])): ?>
+        <p style="text-align: center">range inserito non valido</p><br>
     <?php endif; ?>
         
-
+    <hr>
     
     <h3>Numero di libri pubblicati per autore</h3>  
     <table class="striped">
