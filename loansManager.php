@@ -39,7 +39,7 @@
             $current_date = date("Y-m-d");
 
             $final_date = date_create($current_date);
-            date_modify($final_date,"+14 days");
+            date_modify($final_date,"+30 days");
             $final_date = $final_date->format('Y-m-d');
             
             $sql = "INSERT INTO PRESTITO(cod_suc, cod_copia, cod_matricola, data_prestito, data_restituzione)
